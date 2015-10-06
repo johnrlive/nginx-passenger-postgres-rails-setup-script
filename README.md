@@ -1,11 +1,11 @@
-Hak8or's webserver setup script
+JohnRlive's Forked version Hak8or's webserver setup script
 ===============================
 
 A script to set up a server for a Ruby on Rails application runing on the Phusion Passenger application server with Nginx and using postgresql as the DB server.
 
 Usage:
 ```
-wget https://raw.github.com/hak8or/nginx-passenger-postgres-rails-setup-script/master/config.sh
+wget https://raw.github.com/johnrlive/nginx-passenger-postgres-rails-setup-script/master/config.sh
 chmod 777 config.sh
 sudo ./config.sh
 ```
@@ -34,11 +34,8 @@ hak8or@ubuntu:~$ sudo ./config.sh
     |- [6/7] libcurl4-openssl-dev for ngnix
     \- [7/7] postgresql-9.3 as a database server
   [4/10] Installing ruby
-    |- [1/5] Downloading ruby 2.1.0 source tarball
-    |- [2/5] Extracting ruby source
-    |- [3/5] running configure
-    |- [4/5] running make on 1 core(s). (This takes a while)
-    \- [5/5] running install
+    |- [1/2] Adding in the postgresql official PPA
+    \- [2/2] Install ruby
   [5/10] Install remainder to stack.
     |- [1/6] Updating ruby system gems
     |- [2/6] Installing Rails (this takes a while too)
