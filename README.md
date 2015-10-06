@@ -47,6 +47,10 @@ hak8or@ubuntu:~$ sudo ./config.sh
   [7/10] Running bundle
   [8/10] Configuring Postgres
   [9/10] Editing nginx.conf
+  [9.5/10] Install Security Packages
+    |-  [9.5/1] Install Fail2ban
+    |-  [9.5/2] Install Unattended updates for ubuntu
+    \-  [9.5/3] Install logwatch and update email
   [10/10] Restarting the nginx server
               !! DONE !!
 Keep in mind that this is meant solely for development, so
