@@ -105,41 +105,16 @@ _EOF_
     apt-get install -y postgresql-9.3 &>>$log_location
 
 
-# Get ruby 2.1.0 stable source from the official ruby website.
+# Get ruby from brightbox ppa.
     echo "  [4/10] Installing ruby"
-    echo "    |- [1/5] Downloading ruby $ruby_version source tarball"
-    echo "----FROM SCRIPT ECHO---- Downloading ruby $ruby_version source tarball" &>>$log_location
-    cd $working_directory
-    wget http://cache.ruby-lang.org/pub/ruby/2.1/ruby-$ruby_version.tar.gz &>/dev/null
+    apt-add-repository ppa:brightbox/ruby-ng
+    apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 561F9B9CAC40B2F7
+    vim /etc/apt/sources.list.d/passenger.list
+    apt-get update
 
-# Extract and enter the resulting directory.
-    echo "    |- [2/5] Extracting ruby source"
-    echo "----FROM SCRIPT ECHO---- Extracting ruby source" &>>$log_location
-    tar -xzvf ruby-$ruby_version.tar.gz &>>/dev/null
-    cd ruby-$ruby_version &>>$log_location
+# Install ruby
+apt-get install git-core build-essential ruby2.2 ruby2.2-dev libruby2.2 nodejs nginx-extras passenger postgresql libpq-dev
 
-# Install ruby from source.
-    Processor_Count=`grep -c ^processor /proc/cpuinfo`
-    echo "    |- [3/5] running configure"
-    echo "----FROM SCRIPT ECHO---- running configure" &>>$log_location
-    ./configure  &>>$log_location
-
-    echo "    |- [4/5] running make on $Processor_Count core(s). (This takes a while)"
-    echo "----FROM SCRIPT ECHO---- running make on $Processor_Count core(s). (This takes a while)" &>>$log_location
-    make -j $Processor_Count &>>$log_location
-
-	  # Not sure if I actually need this for anything.
-    # make test
-
-    echo "    \- [5/5] running install"
-    echo "----FROM SCRIPT ECHO---- running install" &>>$log_location
-    make install &>>$log_location
-    cd ..
-
-# Clean the ruby installation files
-    rm -r -f $ruby_version &>>$log_location
-    rm ruby-$ruby_version.tar.gz &>>$log_location
-    cd $working_directory
 
 #----------------------- STOP ------------------------------
 		# echo "Stopped after installing Ruby and apt-get's"
