@@ -251,7 +251,7 @@ _EOF_
 
 # Security Install
 echo "  [9.5/10] Installing Security"
-echo '[		|-  9.5/1 ### Install Fail2ban ###]'
+echo '[		|-  [9.5/1] ### Install Fail2ban ###]'
 sleep 1
 sudo apt-get install -y fail2ban
 sudo cp -f nginx-req-limit.conf /etc/fail2ban/filter.d/nginx-req-limit.conf
@@ -267,7 +267,7 @@ sleep 1
 #echo '[###### Done #####]'
 #sleep 1
 
-echo '[		|-  9.5/2 ### Setup Unattended Updates ###]'
+echo '[		|-  [9.5/2] ### Setup Unattended Updates ###]'
 sleep 1
 sudo apt-get install unattended-upgrades
 sudo cp -f 10periodic /etc/apt/apt.conf.d/10periodic
@@ -275,7 +275,7 @@ sudo cp -f 50unattended-upgrades /etc/apt/apt.conf.d/50unattended-upgrades
 echo '[###### Done #####]'
 sleep 1
 
-echo '[		\-  9.5/3 ### Install Logwatch ###]'
+echo '[		\-  [9.5/3] ### Install Logwatch ###]'
 sleep 1
 sudo apt-get install logwatch
 sudo vim /etc/cron.daily/00logwatch
