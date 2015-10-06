@@ -79,16 +79,15 @@ _EOF_
 	echo "----FROM SCRIPT ECHO---- openssl + libssl-dev required for the rails server and bundle." &>>$log_location
     apt-get install -y openssl libssl-dev &>>$log_location
 
-    # echo "  |- [4/9] ruby-dev for rails and ngnix."
-	# This is not needed for ruby itself.
-    # apt-get install -y ruby-dev &>>$log_location
+    echo "  |- [4/9] ruby-dev for rails and ngnix."
+    apt-get install -y ruby-dev &>>$log_location
 
     echo "    |- [4/7] libsqlite3-dev + sqlite3 for running rails server"
 	echo "----FROM SCRIPT ECHO---- libsqlite3-dev + sqlite3 required to run rails server." &>>$log_location
     apt-get install -y libsqlite3-dev sqlite3 &>>$log_location
 
-    # echo "  |- [6/9] nodejs Javascript runtime required for the rails asset pipeline."
-    # apt-get install -y nodejs &>>$log_location
+    echo "  |- [6/9] nodejs Javascript runtime required for the rails asset pipeline."
+    apt-get install -y nodejs &>>$log_location
 
     echo "    |- [5/7] zlib1g-dev for ngnix"
 	echo "----FROM SCRIPT ECHO---- zlib1g-dev for ngnix."  &>>$log_location
@@ -115,8 +114,8 @@ _EOF_
 
 # Install ruby
     echo "  [4/11] Installing ruby"
-    apt-get install -y git-core build-essential ruby2.2 ruby2.2-dev libruby2.2 \ 
-    nodejs nginx-extras passenger postgresql libpq-dev
+    apt-get install -y git-core ruby2.2 libruby2.2 &>>$log_location
+    apt-get install -y libpq-dev &>>$log_location
 
 
 #----------------------- STOP ------------------------------
