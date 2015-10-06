@@ -80,7 +80,7 @@ _EOF_
     apt-get install -y openssl libssl-dev &>>$log_location
 
     echo "  |- [4/9] ruby-dev for rails and ngnix."
-    apt-get install -y ruby-dev &>>$log_location
+    apt-get install -y ruby-dev$ruby_version &>>$log_location
 
     echo "    |- [4/7] libsqlite3-dev + sqlite3 for running rails server"
 	echo "----FROM SCRIPT ECHO---- libsqlite3-dev + sqlite3 required to run rails server." &>>$log_location
