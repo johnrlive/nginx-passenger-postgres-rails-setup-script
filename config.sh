@@ -115,8 +115,6 @@ _EOF_
 # Install ruby
     echo "  [4/11] Installing ruby"
     apt-get install -y git-core ruby2.2 libruby2.2 &>>$log_location
-    apt-get install -y libpq-dev &>>$log_location
-
 
 #----------------------- STOP ------------------------------
 		# echo "Stopped after installing Ruby and apt-get's"
