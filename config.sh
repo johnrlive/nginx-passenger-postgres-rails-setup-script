@@ -106,14 +106,17 @@ _EOF_
 
 
 # Get ruby from brightbox ppa.
-    echo "  [4/10] Installing ruby"
+    echo "  [4/10] Adding in the Ruby-Lang Brightbox PPA"
+    echo "----FROM SCRIPT ECHO---- Adding in the Ruby-Lang Brightbox PPA" &>>$log_location
     apt-add-repository ppa:brightbox/ruby-ng
     apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 561F9B9CAC40B2F7
     vim /etc/apt/sources.list.d/passenger.list
-    apt-get update
+    apt-get -y update
 
 # Install ruby
-apt-get install git-core build-essential ruby2.2 ruby2.2-dev libruby2.2 nodejs nginx-extras passenger postgresql libpq-dev
+    echo "  [4/11] Installing ruby"
+    apt-get install -y git-core build-essential ruby2.2 ruby2.2-dev libruby2.2 \ 
+    nodejs nginx-extras passenger postgresql libpq-dev
 
 
 #----------------------- STOP ------------------------------
