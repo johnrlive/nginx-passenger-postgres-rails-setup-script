@@ -35,7 +35,7 @@ else
     log_location="$working_directory/config.log"
 fi
 
-ruby_version=2.1.0
+ruby_version=2.2.3
 
 # Make the logging file
     mkdir -p $working_directory
