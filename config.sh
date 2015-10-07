@@ -13,6 +13,16 @@
 # gem "therubyracer", :require => 'v8' into the gemfile to use V8 JS interpreter works instead. Run bundle afterwards.
 #  Therubyracer has issues on Heroku though, so I must try to find a way to use nodejs instead.
 
+# Checks if current user logged has root access
+script_runner=$(whoami)
+
+if [ $script_runner == "root" ] ; then
+  echo -e "\nFor security reasons this script must be run as a normal user with sudo privileges\n"
+  exit 1
+fi
+
+clear
+
 # This downloads ruby from source, installs rails, installs ngnix, and configures everything to work together.
 echo "+----------------------------------------------------+"
 echo "| Bootstrap script running to setup rails with Nginx |"
@@ -35,16 +45,6 @@ else
     working_directory="$HOME"
     log_location="$working_directory/config.log"
 fi
-
-# Checks if current user logged has root access
-script_runner=$(whoami)
-
-if [ $script_runner == "root" ] ; then
-  echo -e "\nFor security reasons this script must be run as a normal user with sudo privileges\n"
-  exit 1
-fi
-
-clear
 
 ruby_version=2.2
 
