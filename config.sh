@@ -136,7 +136,7 @@ _EOF_
     echo "----FROM SCRIPT ECHO---- Adding in the Ruby-Lang Brightbox PPA" &>>$log_location
     apt-add-repository ppa:brightbox/ruby-ng
     apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 561F9B9CAC40B2F7
-    vim /etc/apt/sources.list.d/passenger.list
+    sudo -i vim /etc/apt/sources.list.d/passenger.list
     apt-get -y update
 
 # Install ruby
