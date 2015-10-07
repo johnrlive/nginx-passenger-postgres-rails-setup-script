@@ -24,6 +24,7 @@ echo "| awe at the hours of setting up shortened to mere   |"
 echo "| minutes.                                           |"
 echo "+----------------------------------------------------+"
 
+
 # When the script gets provisioned on a vagrant box, the current home directory is root,
 # which is not what we want. So, if the vagrant option is put in from the vagrantfile then
 # this will be installed into /home/vagrant instead of /vagrant/root.
@@ -35,11 +36,37 @@ else
     log_location="$working_directory/config.log"
 fi
 
+# Checks if current user logged has root access
+script_runner=$(whoami)
+
+if [ $script_runner == "root" ] ; then
+  echo -e "\nFor security reasons this script must be run as a normal user with sudo privileges\n"
+  exit 1
+fi
+
+clear
+
 ruby_version=2.2
 
 # Make the logging file
     mkdir -p $working_directory
     touch $log_location &>>/dev/null
+    
+#Start install prerequisite
+echo '[###### Update server ######]'
+sleep 1
+sudo apt-get -y update
+sudo apt-get -y upgrade
+echo '[###### Done ######]'
+sleep 1
+
+
+echo '[###### Install utility tool ######]'
+sleep 1
+sudo apt-get install -y mc
+sudo apt-get install -y aptitude
+echo '[###### Done ######]'
+sleep 1
 
 # Add in the latest postgresql official ppa.
     echo "  [1/10] Adding in the postgresql official PPA"
