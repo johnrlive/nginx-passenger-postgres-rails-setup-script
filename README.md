@@ -1,4 +1,4 @@
-JohnRlive's fork from Hak8or's webserver setup script
+JohnRlive's fork of Hak8or's webserver setup script
 ===============================
 
 A script to set up a server for a Ruby on Rails application runing on the Phusion Passenger application server with Nginx and using postgresql as the DB server.
@@ -58,7 +58,7 @@ security was not kept in mind.
 +--------------------------------------------------------------+
 |                     || Information ||                        |
 |                                                              |
-| Current IP: 10.0.2.15
+| Current IP: 33.33.33.33
 |                                                              |
 | postgres role: demo_rails_app   postgres password: pass1     |
 |                                                              |
